@@ -1,0 +1,6 @@
+# Node
+node_modules/
+
+# Newman reports
+api-tests/reports/*.html
+api-tests/reports/*.xml

@@ -12,6 +12,11 @@ on:
       - develop
 
 jobs:
+
+- name: Vérifier les fichiers
+  run: |
+    pwd
+    ls -R
   newman-tests:
     runs-on: ubuntu-latest
 

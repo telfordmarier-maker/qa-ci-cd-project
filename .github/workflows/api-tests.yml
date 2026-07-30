@@ -30,28 +30,6 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-html
 
-      - name: Vérifier les fichiers
-        run: |
-          echo "Répertoire courant :"
-          pwd
-
-          echo "Contenu du projet :"
-          ls -la
-
-          echo "Contenu du dossier api-tests :"
-          ls -la api-tests
-
-          echo "Contenu du dossier collections :"
-          ls -la api-tests/collections
-
-          echo "Vérification de la collection :"
-          test -f api-tests/collections/jsonplaceholder-api-tests.postman_collection.json \
-          && echo "Collection trouvée" \
-          || echo "Collection introuvable"
-
-          echo "Contenu du package.json :"
-          cat package.json
-
       - name: Exécuter les tests API
         run: npm run test:api
 

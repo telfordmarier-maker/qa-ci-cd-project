@@ -1,0 +1,32 @@
+name: QA Project Validation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-project:
+    name: Validate Project Structure
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Validate folders and files
+        run: |
+
+          echo "Checking project structure..."
+
+          test -d api-tests
+          test -d ui-tests
+          test -d performance-tests
+          test -d test-data
+          test -d docs
+
+          test -f README.md
+
+          echo "Project structure is valid."

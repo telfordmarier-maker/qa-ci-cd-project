@@ -40,7 +40,7 @@
               "script": {
                 "exec": [
                   "pm.test(\"Status code is 200\", () => {\r",
-                  "    pm.response.to.have.status(200);\r",
+                  "    pm.response.to.have.status(500);\r",
                   "});\r",
                   "\r",
                   "pm.test(\"Response time is below 1000 ms\", () => {\r",

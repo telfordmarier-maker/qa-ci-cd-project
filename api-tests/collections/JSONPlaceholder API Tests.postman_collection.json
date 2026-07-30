@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "503fb3ed-a0f3-42e4-8ad2-bd29cf71b162",
+    "name": "JSONPlaceholder API Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56196704",
+    "_collection_link": "https://go.postman.co/collection/56196704-503fb3ed-a0f3-42e4-8ad2-bd29cf71b162?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "get all users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "Get all posts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is below 1000 ms\", () => {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Content-Type is JSON\", () => {\r",
+                  "    pm.response.to.have.header(\"Content-Type\");\r",
+                  "    pm.expect(pm.response.headers.get(\"Content-Type\"))\r",
+                  "        .to.include(\"application/json\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response is not empty\", () => {\r",
+                  "\r",
+                  "    const body = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(body.length).to.be.greaterThan(0);\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"First post contains required fields\", () => {\r",
+                  "\r",
+                  "    const post = pm.response.json()[0];\r",
+                  "\r",
+                  "    pm.expect(post).to.have.property(\"userId\");\r",
+                  "    pm.expect(post).to.have.property(\"id\");\r",
+                  "    pm.expect(post).to.have.property(\"title\");\r",
+                  "    pm.expect(post).to.have.property(\"body\");\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Fields have correct types\", () => {\r",
+                  "\r",
+                  "    const post = pm.response.json()[0];\r",
+                  "\r",
+                  "    pm.expect(post.userId).to.be.a(\"number\");\r",
+                  "    pm.expect(post.id).to.be.a(\"number\");\r",
+                  "    pm.expect(post.title).to.be.a(\"string\");\r",
+                  "    pm.expect(post.body).to.be.a(\"string\");\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"QA Automation Test\",\r\n    \"body\": \"Creating a post using Postman automation\",\r\n    \"userId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/posts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

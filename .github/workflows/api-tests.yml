@@ -1,43 +1,34 @@
 name: API Tests
-
-on:
+'on':
   push:
     branches:
       - main
       - develop
-
   pull_request:
     branches:
       - main
       - develop
-
 jobs:
-
-- name: Vérifier les fichiers
-  run: |
-    pwd
-    ls -R
   newman-tests:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout du projet
         uses: actions/checkout@v4
-
       - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Installer les dépendances
         run: |
           npm install
           npm install -g newman
           npm install -g newman-reporter-html
-
+      - name: Vérifier les fichiers
+        run: |
+          pwd
+          ls -R    
       - name: Exécuter les tests API
-        run: npm run test:api
-
+        run: 'npm run test:api'
       - name: Publier le rapport HTML
         uses: actions/upload-artifact@v4
         with:

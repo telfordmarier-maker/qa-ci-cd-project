@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite id="0" hostname="https://jsonplaceholder.typicode.com" package="Users" name="get all users" tests="0" failures="0" errors="0" timestamp="2026-07-30T12:35:40.671" time="0.138">
+    <properties>
+      <property name="baseUrl" value="https://jsonplaceholder.typicode.com"/>
+    </properties>
+  </testsuite>
+  <testsuite id="1" hostname="https://jsonplaceholder.typicode.com" package="Posts" name="Get all posts" tests="6" failures="0" errors="0" timestamp="2026-07-30T12:35:40.809" time="0.040">
+    <properties>
+      <property name="baseUrl" value="https://jsonplaceholder.typicode.com"/>
+    </properties>
+    <testcase classname="Posts / Get all posts" name="Status code is 200" time="0.007"/>
+    <testcase classname="Posts / Get all posts" name="Response time is below 1000 ms" time="0.007"/>
+    <testcase classname="Posts / Get all posts" name="Content-Type is JSON" time="0.007"/>
+    <testcase classname="Posts / Get all posts" name="Response is not empty" time="0.007"/>
+    <testcase classname="Posts / Get all posts" name="First post contains required fields" time="0.007"/>
+    <testcase classname="Posts / Get all posts" name="Fields have correct types" time="0.007"/>
+  </testsuite>
+  <testsuite id="2" hostname="https://jsonplaceholder.typicode.com" package="Posts" name="Get by id" tests="0" failures="0" errors="0" timestamp="2026-07-30T12:35:40.849" time="0.027">
+    <properties>
+      <property name="baseUrl" value="https://jsonplaceholder.typicode.com"/>
+    </properties>
+  </testsuite>
+  <testsuite id="3" hostname="https://jsonplaceholder.typicode.com" package="Posts" name="Create post" tests="0" failures="0" errors="0" timestamp="2026-07-30T12:35:40.876" time="0.131">
+    <properties>
+      <property name="baseUrl" value="https://jsonplaceholder.typicode.com"/>
+    </properties>
+  </testsuite>
+</testsuites>

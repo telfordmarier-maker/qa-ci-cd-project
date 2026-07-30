@@ -1,0 +1,13 @@
+{
+  "name": "api-tests",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test:api": "newman run api-tests/collections/jsonplaceholder-api-tests.postman_collection.json -e api-tests/environments/jsonplaceholder-dev.postman_environment.json --reporters cli,html --reporter-html-export api-tests/reports/newman-report.html"
+  
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
